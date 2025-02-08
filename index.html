@@ -1,170 +1,183 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Ramez Al-Samou' - Facharzt</title>
+    <title>مودا - متجر الملابس الأنيقة</title>
     <style>
-        :root { --primary: #2A5C82; --secondary: #5B9BD5; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        
-        /* Header */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
         .header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('medical-bg.jpg');
-            background-size: cover;
+            background-color: #2c3e50;
             color: white;
-            padding: 2rem;
+            padding: 20px;
             text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-        
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav ul {
+
+        .nav-bar {
             display: flex;
             justify-content: center;
-            list-style: none;
-            padding: 1rem;
+            background-color: #34495e;
+            padding: 15px;
         }
-        .nav a {
-            color: var(--primary);
+
+        .nav-bar a {
+            color: white;
             text-decoration: none;
-            margin: 0 2rem;
-            font-weight: bold;
-            transition: 0.3s;
+            margin: 0 20px;
+            font-size: 18px;
         }
-        
-        /* Sections */
-        .section {
-            padding: 5rem 2rem;
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
-        .section h2 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Services Grid */
-        .services-grid {
+
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        .service-card {
-            background: #f8f9fa;
-            padding: 2rem;
+
+        .product-card {
+            background: white;
             border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
             text-align: center;
         }
-        
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
         }
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+
+        .product-price {
+            color: #e74c3c;
+            font-size: 1.2em;
         }
-        button {
-            background: var(--primary);
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
             color: white;
-            padding: 1rem 2rem;
-            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
         }
-        
-        /* Responsive */
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .newsletter {
+            background: #ecf0f1;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
         @media (max-width: 768px) {
-            .nav ul { flex-direction: column; text-align: center; }
-            .nav a { margin: 0.5rem 0; }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <ul>
-            <li><a href="#home">Startseite</a></li>
-            <li><a href="#about">Über mich</a></li>
-            <li><a href="#services">Leistungen</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <header class="header" id="home">
-        <h1>Dr. med. Ramez Al-Samou'</h1>
-        <p>Facharzt für Innere Medizin</p>
-        <p>Zertifizierter Spezialist seit 2010</p>
+    <header class="header">
+        <h1>مودا</h1>
+        <p>متجر الأزياء الراقية</p>
     </header>
 
-    <section class="section" id="about">
-        <h2>Über mich</h2>
-        <div class="content">
-            <img src="doctor-profile.jpg" alt="Dr. Ramez" style="float:left; width:200px; margin-right:2rem;">
-            <p>Facharzttitel: Innere Medizin (FMH)<br>
-            Ausbildung: Universität Zürich<br>
-            Spezialgebiete: Kardiologie, Diabetologie<br>
-            Sprechstunde: Mo-Fr 08:00-17:00</p>
-        </div>
-    </section>
+    <nav class="nav-bar">
+        <a href="#home">الرئيسية</a>
+        <a href="#new">الوافد الجديد</a>
+        <a href="#men">رجالي</a>
+        <a href="#women">نسائي</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
 
-    <section class="section" id="services">
-        <h2>Leistungen</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Kardiologische Untersuchungen</h3>
-                <p>EKG, Belastungstests, Echokardiographie</p>
+    <div class="container">
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://source.unsplash.com/random/600x800?shirt" class="product-img" alt="قميص رجالي">
+                <div class="product-info">
+                    <div class="product-title">قميص رسمي</div>
+                    <div class="product-price">149 ر.س</div>
+                    <a href="#" class="btn">أضف للسلة</a>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Diabetologische Beratung</h3>
-                <p>Stoffwechselanalyse, Therapieplanung</p>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://source.unsplash.com/random/600x800?dress" class="product-img" alt="فستان سهرة">
+                <div class="product-info">
+                    <div class="product-title">فستان سهرة</div>
+                    <div class="product-price">399 ر.س</div>
+                    <a href="#" class="btn">أضف للسلة</a>
+                </div>
             </div>
+
+            <!-- Add more products similarly -->
         </div>
-    </section>
 
-    <section class="section" id="contact">
-        <h2>Kontaktformular</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="E-Mail" required>
-            <textarea rows="5" placeholder="Nachricht" required></textarea>
-            <button type="submit">Senden</button>
-        </form>
-    </section>
+        <div class="newsletter">
+            <h2>اشترك في نشرتنا الإخبارية</h2>
+            <input type="email" placeholder="أدخل بريدك الإلكتروني">
+            <button class="btn">اشترك</button>
+        </div>
+    </div>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Mobile menu
-        const nav = document.querySelector('.nav ul');
-        window.addEventListener('resize', () => {
-            if(window.innerWidth > 768) nav.style.display = 'flex';
-        });
-    </script>
+    <footer class="footer">
+        <div class="container">
+            <p>تابعنا على وسائل التواصل الاجتماعي</p>
+            <div style="margin: 20px 0;">
+                <a href="#" style="color: white; margin: 0 10px;">فيسبوك</a>
+                <a href="#" style="color: white; margin: 0 10px;">تويتر</a>
+                <a href="#" style="color: white; margin: 0 10px;">إنستغرام</a>
+            </div>
+            <p>© 2023 مودا. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
 </body>
 </html>
