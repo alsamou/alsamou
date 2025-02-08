@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Ramez Al-Samou' - Facharzt</title>
+    <style>
+        :root { --primary: #2A5C82; --secondary: #5B9BD5; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('medical-bg.jpg');
+            background-size: cover;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+        }
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 2rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav ul { flex-direction: column; text-align: center; }
+            .nav a { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="#home">Startseite</a></li>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header class="header" id="home">
+        <h1>Dr. med. Ramez Al-Samou'</h1>
+        <p>Facharzt für Innere Medizin</p>
+        <p>Zertifizierter Spezialist seit 2010</p>
+    </header>
+
+    <section class="section" id="about">
+        <h2>Über mich</h2>
+        <div class="content">
+            <img src="doctor-profile.jpg" alt="Dr. Ramez" style="float:left; width:200px; margin-right:2rem;">
+            <p>Facharzttitel: Innere Medizin (FMH)<br>
+            Ausbildung: Universität Zürich<br>
+            Spezialgebiete: Kardiologie, Diabetologie<br>
+            Sprechstunde: Mo-Fr 08:00-17:00</p>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Kardiologische Untersuchungen</h3>
+                <p>EKG, Belastungstests, Echokardiographie</p>
+            </div>
+            <div class="service-card">
+                <h3>Diabetologische Beratung</h3>
+                <p>Stoffwechselanalyse, Therapieplanung</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Kontaktformular</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="E-Mail" required>
+            <textarea rows="5" placeholder="Nachricht" required></textarea>
+            <button type="submit">Senden</button>
+        </form>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu
+        const nav = document.querySelector('.nav ul');
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 768) nav.style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
